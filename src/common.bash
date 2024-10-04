@@ -1216,7 +1216,7 @@ EOF
 			if $install
 			then
 				local pkglist
-				su -s /bin/bash "$makepkg_user" -c "GNUPGHOME=$(realpath ../../gnupg) $(printf ' %q' "${args[@]}" --packagelist)" | mapfile -t pkglist
+				su -s /bin/bash "$makepkg_user" -c "GNUPGHOME=$(realpath ../../gnupg) $(printf ' %q' "${args[@]}" --packagelist)" | xargs ls 2>/dev/null | mapfile -t pkglist
 
 				if $asdeps
 				then
